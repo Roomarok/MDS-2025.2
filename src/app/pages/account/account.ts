@@ -14,6 +14,8 @@ import {
   IonToolbar,
 } from '@ionic/angular/standalone';
 import { UserService } from '../../providers/user.service';
+import { Aluno } from '../../interfaces/aluno';
+import { AlunoService } from '../../providers/aluno.service';
 
 @Component({
     selector: 'page-account',
@@ -36,13 +38,17 @@ export class AccountPage implements AfterViewInit {
   private alertCtrl = inject(AlertController);
   private router = inject(Router);
   private user = inject(UserService);
+  private alunoService = inject(AlunoService);
 
   username: string;
+  aluno: Aluno;
 
   ngAfterViewInit() {
-    this.getUsername();
   }
 
+  ionViewWillEnter() {
+    this.getUsername();
+  }
   updatePicture() {
     console.log('Clicked to update picture');
   }
@@ -78,7 +84,16 @@ export class AccountPage implements AfterViewInit {
   getUsername() {
     this.user.getUsername().then(username => {
       this.username = username;
+      if(this.username) {
+        this.getAluno();
+      }
     });
+  }
+
+  getAluno() {
+    console.log('getAluno');
+    this.aluno = this.alunoService.getAluno(this.username); 
+    console.log(this.aluno);
   }
 
   changePassword() {
@@ -90,7 +105,4 @@ export class AccountPage implements AfterViewInit {
     this.router.navigateByUrl('/login');
   }
 
-  support() {
-    this.router.navigateByUrl('/support');
-  }
 }

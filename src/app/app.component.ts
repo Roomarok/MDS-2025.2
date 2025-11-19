@@ -166,6 +166,7 @@ export class AppComponent implements OnInit {
   listenForLoginEvents() {
     window.addEventListener('user:login', () => {
       this.updateLoggedInStatus(true);
+      this.router.navigateByUrl('/app/tabs/schedule');
     });
 
     window.addEventListener('user:signup', () => {
@@ -174,6 +175,24 @@ export class AppComponent implements OnInit {
 
     window.addEventListener('user:logout', () => {
       this.updateLoggedInStatus(false);
+    });
+
+    window.addEventListener('user:loginError', async () => {
+      this.updateLoggedInStatus(false);
+      const toast = await this.toastCtrl.create({
+        message: 'Não foi possível validar as informações. Por favor, verifique os seus dados e tente novamente.',
+        position: 'top',
+        duration: 3000
+        /*        buttons: [
+                  {
+                    role: 'cancel',
+                    text: 'Ok'
+                  }
+                ]*/
+      });
+
+      await toast.present();
+      console.log('');
     });
   }
 

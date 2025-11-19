@@ -1,0 +1,19 @@
+{
+    "alunos": [
+        {
+            "_type": "Aluno",
+            "matricula": "180001234",
+            "nome": "RICARDO PUTTINI"
+        },
+        {
+            "_type": "Aluno",
+            "matricula": "242004018",
+            "nome": "JOAO PEDRO ALUNO MDS"
+        },
+        {
+            "_type": "Aluno",
+            "matricula": "221021124",
+            "nome": "ANA CLARA ALUNA MDS"
+        }
+    ]
+}
