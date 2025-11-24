@@ -3,7 +3,7 @@ import { Storage } from '@ionic/storage-angular';
 import { UserOptions, UserData } from '../interfaces/user-options';
 
 import { HttpClient } from '@angular/common/http';
-import { of } from 'rxjs';
+import { of, lastValueFrom } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 
@@ -19,6 +19,9 @@ export class UserService {
   HAS_SEEN_TUTORIAL = 'hasSeenTutorial';
 
   data: UserData | null = null;
+
+  FAILED_ATTEMPTS = 'loginFailedAttempts';
+  LOCKOUT_UNTIL = 'loginLockoutUntil';
 
   constructor(
   ) {
@@ -62,29 +65,7 @@ export class UserService {
     }
   }
 
-  login(login: UserOptions) : Promise<boolean> {
-    console.log('login');
-    var hasLoggedIn = false;
 
-    for(var i = 0; i < this.data.users.length; i++) {
-      if(this.data.users[i].username == login.username && this.data.users[i].password == login.password) {
-        hasLoggedIn = true;
-        break;
-      }
-    }
-    console.log(hasLoggedIn);
-    if(hasLoggedIn) {
-      return this.storage.set(this.HAS_LOGGED_IN, true).then(() => {
-        this.setUsername(login.username);
-        return window.dispatchEvent(new CustomEvent('user:login'));
-      });
-    }
-    else {
-      return this.storage.set(this.HAS_LOGGED_IN, false).then(() => {
-        return window.dispatchEvent(new CustomEvent('user:loginError'));
-      });
-    }
-  }
 
   signup(username: string): Promise<boolean> {
     return this.storage.set(this.HAS_LOGGED_IN, true).then(() => {
@@ -122,6 +103,94 @@ export class UserService {
   getUsers() {
     console.log('getUsers');
     return this.load().pipe(map((data: UserData) => data));
+  }
+
+  async getFailedAttempts(): Promise<number> {
+    const v = await this.storage.get(this.FAILED_ATTEMPTS);
+    return typeof v === 'number' ? v : 0;
+  }
+
+  async resetFailedAttempts(): Promise<void> {
+    await this.storage.set(this.FAILED_ATTEMPTS, 0);
+  }
+
+  async incrementFailedAttempts(): Promise<number> {
+    const current = await this.getFailedAttempts();
+    const next = current + 1;
+    await this.storage.set(this.FAILED_ATTEMPTS, next);
+    return next;
+  }
+
+  async setLockout(minutes: number): Promise<void> {
+    const until = Date.now() + minutes * 60 * 1000;
+    await this.storage.set(this.LOCKOUT_UNTIL, until);
+  }
+
+  async clearLockout(): Promise<void> {
+    await this.storage.remove(this.LOCKOUT_UNTIL);
+  }
+
+  async getLockRemaining(): Promise<number> {
+    const until = await this.storage.get(this.LOCKOUT_UNTIL);
+    if (!until) return 0;
+    const remaining = Number(until) - Date.now();
+    if (remaining <= 0) {
+      await this.clearLockout();
+      return 0;
+    }
+    return remaining;
+  }
+
+  async login(login: UserOptions): Promise<{ success: boolean; locked: boolean; remaining?: number }> {
+    console.log('login');
+
+    if (!this.data) {
+      try {
+        await lastValueFrom(this.load());
+      } catch (e) {
+        console.error('Erro ao carregar dados de usuário', e);
+      }
+    }
+
+    const lockRemaining = await this.getLockRemaining();
+    if (lockRemaining > 0) {
+      return { success: false, locked: true, remaining: lockRemaining };
+    }
+
+    let hasLoggedIn = false;
+
+    if (this.data && this.data.users) {
+      for (let i = 0; i < this.data.users.length; i++) {
+        if (this.data.users[i].username == login.username && this.data.users[i].password == login.password) {
+          hasLoggedIn = true;
+          break;
+        }
+      }
+    }
+
+    console.log('login result:', hasLoggedIn);
+
+    if (hasLoggedIn) {
+      // se logar reseta o bloqueio
+      await this.resetFailedAttempts();
+      await this.clearLockout();
+      await this.storage.set(this.HAS_LOGGED_IN, true);
+      await this.setUsername(login.username);
+      window.dispatchEvent(new CustomEvent('user:login'));
+      return { success: true, locked: false };
+    } else {
+      const attempts = await this.incrementFailedAttempts();
+      // depois de 5 tentativas bloqueia o login por 10 min
+      if (attempts >= 5) {
+        await this.setLockout(10);
+        // reseta o bloqueio depois dos 10 min
+        await this.resetFailedAttempts();
+        window.dispatchEvent(new CustomEvent('user:loginError'));
+        return { success: false, locked: true, remaining: 10 * 60 * 1000 };
+      }
+      window.dispatchEvent(new CustomEvent('user:loginError'));
+      return { success: false, locked: false };
+    }
   }
 
 }

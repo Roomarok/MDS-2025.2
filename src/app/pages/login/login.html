@@ -45,7 +45,7 @@
 
       <ion-row>
         <ion-col>
-          <ion-button (click)="onLogin(loginForm)" type="submit" expand="block"
+          <ion-button (click)="onLogin(loginForm)" type="submit" expand="block" [disabled]="locked"
             >Entrar</ion-button
           >
         </ion-col>
@@ -56,5 +56,8 @@
         </ion-col> -->
       </ion-row>
     </form>
+    <div *ngIf="locked" style="text-align:center; margin-top:12px; color:#666;">
+      Login bloqueado por {{lockMinutes}}:{{lockSeconds}} minutos.
+    </div>
   </div>
 </ion-content>

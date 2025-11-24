@@ -179,20 +179,27 @@ export class AppComponent implements OnInit {
 
     window.addEventListener('user:loginError', async () => {
       this.updateLoggedInStatus(false);
+      let message = 'Não foi possível validar as informações. Por favor, verifique os seus dados e tente novamente.';
+      try {
+        const lockRem = await this.userService.getLockRemaining();
+        if (lockRem > 0) {
+          message = `Login bloqueado por 10 minutos.`;
+        } else {
+          const attempts = await this.userService.getFailedAttempts();
+          const remaining = Math.max(0, 5 - attempts);
+          message += ` Restam ${remaining} tentativa(s).`;
+        }
+      } catch (e) {
+        console.error('Erro ao consultar tentativas/lock:', e);
+      }
+
       const toast = await this.toastCtrl.create({
-        message: 'Não foi possível validar as informações. Por favor, verifique os seus dados e tente novamente.',
+        message,
         position: 'top',
-        duration: 3000
-        /*        buttons: [
-                  {
-                    role: 'cancel',
-                    text: 'Ok'
-                  }
-                ]*/
+        duration: 3000,
       });
 
       await toast.present();
-      console.log('');
     });
   }
 
