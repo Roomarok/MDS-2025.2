@@ -3,17 +3,65 @@
         {
             "_type": "Aluno",
             "matricula": "180001234",
-            "nome": "RICARDO PUTTINI"
+            "nome": "RICARDO PUTTINI",
+            "ira": 4.12,
+            "curso": {
+                "_type": "Curso",
+                "nome": "ENGENHARIA DE REDES DE COMUNICAÇÃO",
+                "grauAcademico": "Bacharelado",
+                "turno": "diurno",
+                "sede": "BRASÍLIA",
+                "modalidade": "presencial",
+                "coordenador": {
+                    "nome": "JOAO JOSE COSTA GONDIM"
+                },
+                "unidadeAcademica": {
+                    "codigo": "ENE",
+                    "nome": "DEPARTAMENTO DE ENGENHARIA ELÉTRICA"
+                }
+            }
         },
         {
             "_type": "Aluno",
             "matricula": "242004018",
-            "nome": "JOAO PEDRO ALUNO MDS"
+            "nome": "JOAO PEDRO ALUNO MDS",
+            "ira": 4.12,
+            "curso": {
+                "_type": "Curso",
+                "nome": "ENGENHARIA DE REDES DE COMUNICAÇÃO",
+                "grauAcademico": "Bacharelado",
+                "turno": "diurno",
+                "sede": "BRASÍLIA",
+                "modalidade": "presencial",
+                "coordenador": {
+                    "nome": "JOAO JOSE COSTA GONDIM"
+                },
+                "unidadeAcademica": {
+                    "codigo": "ENE",
+                    "nome": "DEPARTAMENTO DE ENGENHARIA ELÉTRICA"
+                }
+            }
         },
         {
             "_type": "Aluno",
             "matricula": "221021124",
-            "nome": "ANA CLARA ALUNA MDS"
+            "nome": "ANA CLARA ALUNA MDS",
+            "ira": 4.12,
+            "curso": {
+                "_type": "Curso",
+                "nome": "ENGENHARIA DE REDES DE COMUNICAÇÃO",
+                "grauAcademico": "Bacharelado",
+                "turno": "diurno",
+                "sede": "BRASÍLIA",
+                "modalidade": "presencial",
+                "coordenador": {
+                    "nome": "JOAO JOSE COSTA GONDIM"
+                },
+                "unidadeAcademica": {
+                    "codigo": "ENE",
+                    "nome": "DEPARTAMENTO DE ENGENHARIA ELÉTRICA"
+                }
+            }
         }
     ]
 }

@@ -27,6 +27,8 @@ import {
   ToastController,
 } from '@ionic/angular/standalone';
 import {
+  list,
+  listOutline,
   calendarOutline,
   hammer,
   help,
@@ -76,22 +78,24 @@ export class AppComponent implements OnInit {
 
   appPages = [
     {
-      title: 'Schedule',
+      title: 'Matrícula 2026.1',
       url: '/app/tabs/schedule',
       icon: 'calendar',
     },
     {
-      title: 'Speakers',
+      title: 'Lista de Oferta',
       url: '/app/tabs/speakers',
-      icon: 'people',
+      icon: 'list',
     },
+/*
     {
       title: 'Map',
       url: '/app/tabs/map',
       icon: 'map',
     },
+*/    
     {
-      title: 'About',
+      title: 'Sobre',
       url: '/app/tabs/about',
       icon: 'information-circle',
     },
@@ -101,6 +105,8 @@ export class AppComponent implements OnInit {
 
   constructor() {
     addIcons({
+      list,
+      listOutline,
       calendarOutline,
       peopleOutline,
       mapOutline,

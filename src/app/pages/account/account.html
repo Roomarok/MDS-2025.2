@@ -18,8 +18,16 @@
       alt="User avatar"
       class="user-avatar"
     />
-    <h2>{{aluno.nome}}</h2>
-    <h3>{{aluno.matricula}}</h3>
+    <ion-list inset>
+      <ion-item>Nome: {{aluno.nome}}</ion-item>
+      <ion-item>Matrícula: {{aluno.matricula}}</ion-item>
+      <ion-item>Curso: {{aluno.curso.nome}}</ion-item>
+      <ion-item>IRA: {{aluno.ira}}</ion-item>
+    </ion-list>
+    <h2></h2>
+    <h2></h2>
+    <h3></h3>
+    <h4></h4>
 
     <ion-list inset>
       <ion-item (click)="updatePicture()">Atualizar Foto</ion-item>

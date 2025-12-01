@@ -3,7 +3,7 @@
     <ion-menu contentId="main-content">
       <ion-content>
         <ion-list lines="none">
-          <ion-list-header> Conference </ion-list-header>
+          <ion-list-header> SIGAA </ion-list-header>
           @for(p of appPages; track p.url; let i = $index) {
           <ion-menu-toggle autoHide="false">
             <ion-item
@@ -22,7 +22,7 @@
         </ion-list>
         @if(loggedIn) {
         <ion-list lines="none">
-          <ion-list-header> Account </ion-list-header>
+          <ion-list-header> Usuário </ion-list-header>
 
           <ion-menu-toggle autoHide="false">
             <ion-item
@@ -32,11 +32,11 @@
               detail="false"
             >
               <ion-icon slot="start" name="person"></ion-icon>
-              <ion-label> Account </ion-label>
+              <ion-label> Perfil </ion-label>
             </ion-item>
           </ion-menu-toggle>
 
-          <ion-menu-toggle autoHide="false">
+          <!--ion-menu-toggle autoHide="false">
             <ion-item
               routerLink="/support"
               routerLinkActive="selected"
@@ -46,18 +46,18 @@
               <ion-icon slot="start" name="help"></ion-icon>
               <ion-label> Support </ion-label>
             </ion-item>
-          </ion-menu-toggle>
+          </ion-menu-toggle-->
 
           <ion-menu-toggle autoHide="false">
             <ion-item button (click)="logout()" detail="false">
               <ion-icon slot="start" name="log-out"></ion-icon>
-              <ion-label> Logout </ion-label>
+              <ion-label> Sair </ion-label>
             </ion-item>
           </ion-menu-toggle>
         </ion-list>
         } @if(!loggedIn) {
         <ion-list lines="none">
-          <ion-list-header> Account </ion-list-header>
+          <ion-list-header> Usuário </ion-list-header>
 
           <ion-menu-toggle autoHide="false">
             <ion-item
@@ -67,11 +67,11 @@
               detail="false"
             >
               <ion-icon slot="start" name="log-in"></ion-icon>
-              <ion-label> Login </ion-label>
+              <ion-label> Entrar </ion-label>
             </ion-item>
           </ion-menu-toggle>
 
-          <ion-menu-toggle autoHide="false">
+          <!--ion-menu-toggle autoHide="false">
             <ion-item
               routerLink="/support"
               routerLinkActive="selected"
@@ -93,18 +93,18 @@
               <ion-icon slot="start" name="person-add"></ion-icon>
               <ion-label> Signup </ion-label>
             </ion-item>
-          </ion-menu-toggle>
+          </ion-menu-toggle-->
 
           <ion-item>
             <ion-icon slot="start" name="moon-outline"></ion-icon>
             <ion-toggle [(ngModel)]="dark" (ionChange)="toggleDarkMode()">
-              Dark Mode
+              Modo Escuro
             </ion-toggle>
           </ion-item>
         </ion-list>
         }
 
-        <ion-list lines="none">
+        <!-- <ion-list lines="none">
           <ion-list-header> Tutorial </ion-list-header>
           <ion-menu-toggle autoHide="false">
             <ion-item button (click)="openTutorial()" detail="false">
@@ -112,7 +112,7 @@
               <ion-label>Show Tutorial</ion-label>
             </ion-item>
           </ion-menu-toggle>
-        </ion-list>
+        </ion-list> -->
       </ion-content>
     </ion-menu>
 
