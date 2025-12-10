@@ -1,0 +1,457 @@
+{
+    "disciplinas": [
+      {
+        "codigo": "ENE0026",
+        "nome": "INTRODUÇÃO A ENGENHARIA DE REDES DE COMUNICACÃO",
+        "modalidade": "presencial",
+        "cargaHorariaTotal": 30,
+        "cargaHoraria": {
+          "teorica": 30,
+          "pratica": 0,
+          "extensionista": 0
+        },
+        "unidadeAcademica": {
+          "codigo": "ENE",
+          "nome": "DEPARTAMENTO DE ENGENHARIA ELÉTRICA"
+        }
+      }, {
+        "codigo": "ENE0334",
+        "nome": "COMPUTACAO PARA ENGENHARIA",
+        "modalidade": "presencial",
+        "cargaHorariaTotal": 60,
+        "cargaHoraria": {
+          "teorica": 30,
+          "pratica": 30,
+          "extensionista": 0
+        },
+        "unidadeAcademica": {
+          "codigo": "ENE",
+          "nome": "DEPARTAMENTO DE ENGENHARIA ELÉTRICA"
+        }
+      }, {
+        "codigo": "IFD0171",
+        "nome": "FISICA 1",
+        "modalidade": "presencial",
+        "cargaHorariaTotal": 60,
+        "cargaHoraria": {
+          "teorica": 60,
+          "pratica": 0,
+          "extensionista": 0
+        },
+        "unidadeAcademica": {
+          "codigo": "IFD",
+          "nome": "INSTITUTO DE FÍSICA"
+        }
+      }, {
+        "codigo": "IFD0173",
+        "nome": "FISICA 1 EXPERIMENTAL",
+        "modalidade": "presencial",
+        "cargaHorariaTotal": 30,
+        "cargaHoraria": {
+          "teorica": 0,
+          "pratica": 30,
+          "extensionista": 0
+        },
+        "unidadeAcademica": {
+          "codigo": "IFD",
+          "nome": "INSTITUTO DE FÍSICA"
+        }
+      }, {
+        "codigo": "MAT0025",
+        "nome": "CÁLCULO 1",
+        "modalidade": "presencial",
+        "cargaHorariaTotal": 90,
+        "cargaHoraria": {
+          "teorica": 30,
+          "pratica": 60,
+          "extensionista": 0
+        },
+        "unidadeAcademica": {
+          "codigo": "MAT",
+          "nome": "DEPARTAMENTO DE MATEMÁTICA"
+        }
+      }, {
+        "codigo": "MAT0031",
+        "nome": "INTRODUCAO A ALGEBRA LINEAR",
+        "modalidade": "presencial",
+        "cargaHorariaTotal": 60,
+        "cargaHoraria": {
+          "teorica": 30,
+          "pratica": 30,
+          "extensionista": 0
+        },
+        "unidadeAcademica": {
+          "codigo": "MAT",
+          "nome": "DEPARTAMENTO DE MATEMÁTICA"
+        }
+      }, {
+        "codigo": "ENE0013",
+        "nome": "ALGORITMOS E ESTRUTURA DE DADOS",
+        "modalidade": "presencial",
+        "cargaHorariaTotal": 60,
+        "cargaHoraria": {
+          "teorica": 30,
+          "pratica": 30,
+          "extensionista": 0
+        },
+        "preRequisito": [
+          {
+            "codigo": "ENE0334",
+            "nome": "COMPUTACAO PARA ENGENHARIA",
+            "unidadeAcademica": {
+              "codigo": "ENE",
+              "nome": "DEPARTAMENTO DE ENGENHARIA ELÉTRICA"
+            }
+          }
+        ],
+        "unidadeAcademica": {
+          "codigo": "ENE",
+          "nome": "DEPARTAMENTO DE ENGENHARIA ELÉTRICA"
+        }
+      }, {
+        "codigo": "ENE0039",
+        "nome": "SISTEMAS DIGITAIS",
+        "modalidade": "presencial",
+        "cargaHorariaTotal": 60,
+        "cargaHoraria": {
+          "teorica": 60,
+          "pratica": 0,
+          "extensionista": 0
+        },
+        "preRequisito": [
+          {
+            "codigo": "ENE0334",
+            "nome": "COMPUTACAO PARA ENGENHARIA",
+            "unidadeAcademica": {
+              "codigo": "ENE",
+              "nome": "DEPARTAMENTO DE ENGENHARIA ELÉTRICA"
+            }
+          }
+        ],
+        "unidadeAcademica": {
+          "codigo": "ENE",
+          "nome": "DEPARTAMENTO DE ENGENHARIA ELÉTRICA"
+        }
+      }, {
+        "codigo": "ENE0040",
+        "nome": "LABORATÓRIO DE SISTEMAS DIGITAIS",
+        "modalidade": "presencial",
+        "cargaHorariaTotal": 30,
+        "cargaHoraria": {
+          "teorica": 0,
+          "pratica": 30,
+          "extensionista": 0
+        },
+        "preRequisito": [
+          {
+            "codigo": "ENE0334",
+            "nome": "COMPUTACAO PARA ENGENHARIA",
+            "unidadeAcademica": {
+              "codigo": "ENE",
+              "nome": "DEPARTAMENTO DE ENGENHARIA ELÉTRICA"
+            }
+          }
+        ],
+        "unidadeAcademica": {
+          "codigo": "ENE",
+          "nome": "DEPARTAMENTO DE ENGENHARIA ELÉTRICA"
+        }
+      }, {
+        "codigo": "EST0023",
+        "nome": "PROBABILIDADE E ESTATÍSTICA",
+        "modalidade": "presencial",
+        "cargaHorariaTotal": 60,
+        "cargaHoraria": {
+          "teorica": 30,
+          "pratica": 30,
+          "extensionista": 0
+        },
+        "preRequisito": [
+          {
+            "codigo": "MAT0025",
+            "nome": "CÁLCULO 1",
+            "unidadeAcademica": {
+              "codigo": "MAT",
+              "nome": "DEPARTAMENTO DE MATEMÁTICA"
+            }
+          }
+        ],
+        "unidadeAcademica": {
+          "codigo": "EST",
+          "nome": "DEPARTAMENTO DE ESTATÍSTICA"
+        }
+      }, {
+        "codigo": "IFD0175",
+        "nome": "FISICA 2",
+        "modalidade": "presencial",
+        "cargaHorariaTotal": 60,
+        "cargaHoraria": {
+          "teorica": 30,
+          "pratica": 30,
+          "extensionista": 0
+        },
+        "preRequisito": [
+          {
+            "codigo": "MAT0025",
+            "nome": "CÁLCULO 1",
+            "unidadeAcademica": {
+              "codigo": "MAT",
+              "nome": "DEPARTAMENTO DE MATEMÁTICA"
+            }
+          },
+          {
+            "codigo": "IFD0171",
+            "nome": "FISICA 1",
+            "unidadeAcademica": {
+              "codigo": "IFD",
+              "nome": "INSTITUTO DE FÍSICA"
+            }
+          }
+        ],
+        "unidadeAcademica": {
+          "codigo": "IFD",
+          "nome": "INSTITUTO DE FÍSICA"
+        }
+      }, {
+        "codigo": "MAT0026",
+        "nome": "CÁLCULO 2",
+        "modalidade": "presencial",
+        "cargaHorariaTotal": 90,
+        "cargaHoraria": {
+          "teorica": 60,
+          "pratica": 30,
+          "extensionista": 0
+        },
+        "preRequisito": [
+          {
+            "codigo": "MAT0025",
+            "nome": "CÁLCULO 1",
+            "unidadeAcademica": {
+              "codigo": "MAT",
+              "nome": "DEPARTAMENTO DE MATEMÁTICA"
+            }
+          }
+        ],
+        "unidadeAcademica": {
+          "codigo": "MAT",
+          "nome": "DEPARTAMENTO DE MATEMÁTICA"
+        }
+      }, {
+        "codigo": "ENE0022",
+        "nome": "PROJETO TRANSVERSAL EM REDES DE COMUNICAÇÃO 1",
+        "modalidade": "presencial",
+        "cargaHorariaTotal": 60,
+        "cargaHoraria": {
+          "teorica": 0,
+          "pratica": 60,
+          "extensionista": 0
+        },
+        "preRequisito": [
+          {
+            "codigo": "ENE0334",
+            "nome": "COMPUTACAO PARA ENGENHARIA",
+            "unidadeAcademica": {
+              "codigo": "ENE",
+              "nome": "DEPARTAMENTO DE ENGENHARIA ELÉTRICA"
+            }
+          },
+          {
+            "codigo": "ENE0013",
+            "nome": "ALGORITMOS E ESTRUTURA DE DADOS",
+            "unidadeAcademica": {
+              "codigo": "ENE",
+              "nome": "DEPARTAMENTO DE ENGENHARIA ELÉTRICA"
+            }
+          }
+        ],
+        "unidadeAcademica": {
+          "codigo": "ENE",
+          "nome": "DEPARTAMENTO DE ENGENHARIA ELÉTRICA"
+        }
+      }, {
+        "codigo": "ENE0056",
+        "nome": "SISTEMAS MICROPROCESSADOS",
+        "modalidade": "presencial",
+        "cargaHorariaTotal": 60,
+        "cargaHoraria": {
+          "teorica": 60,
+          "pratica": 0,
+          "extensionista": 0
+        },
+        "preRequisito": [
+          {
+            "codigo": "ENE0039",
+            "nome": "SISTEMAS DIGITAIS",
+            "unidadeAcademica": {
+              "codigo": "ENE",
+              "nome": "DEPARTAMENTO DE ENGENHARIA ELÉTRICA"
+            }
+          },
+          {
+            "codigo": "ENE0040",
+            "nome": "LABORATÓRIO DE SISTEMAS DIGITAIS",
+            "unidadeAcademica": {
+              "codigo": "ENE",
+              "nome": "DEPARTAMENTO DE ENGENHARIA ELÉTRICA"
+            }
+          }
+        ],
+        "unidadeAcademica": {
+          "codigo": "ENE",
+          "nome": "DEPARTAMENTO DE ENGENHARIA ELÉTRICA"
+        }
+      }, {
+        "codigo": "ENE0058",
+        "nome": "LABORATÓRIO DE SISTEMAS MICROPROCESSADOS",
+        "modalidade": "presencial",
+        "cargaHorariaTotal": 30,
+        "cargaHoraria": {
+          "teorica": 0,
+          "pratica": 30,
+          "extensionista": 0
+        },
+        "preRequisito": [
+          {
+            "codigo": "ENE0039",
+            "nome": "SISTEMAS DIGITAIS",
+            "unidadeAcademica": {
+              "codigo": "ENE",
+              "nome": "DEPARTAMENTO DE ENGENHARIA ELÉTRICA"
+            }
+          },
+          {
+            "codigo": "ENE0040",
+            "nome": "LABORATÓRIO DE SISTEMAS DIGITAIS",
+            "unidadeAcademica": {
+              "codigo": "ENE",
+              "nome": "DEPARTAMENTO DE ENGENHARIA ELÉTRICA"
+            }
+          }
+        ],
+        "unidadeAcademica": {
+          "codigo": "ENE",
+          "nome": "DEPARTAMENTO DE ENGENHARIA ELÉTRICA"
+        }
+      }, {
+        "codigo": "ENE0067",
+        "nome": "SINAIS E SISTEMAS EM TEMPO CONTÍNUO",
+        "modalidade": "presencial",
+        "cargaHorariaTotal": 60,
+        "cargaHoraria": {
+          "teorica": 60,
+          "pratica": 0,
+          "extensionista": 0
+        },
+        "preRequisito": [
+          {
+            "codigo": "MAT0026",
+            "nome": "CÁLCULO 2",
+            "unidadeAcademica": {
+              "codigo": "ENE",
+              "nome": "DEPARTAMENTO DE ENGENHARIA ELÉTRICA"
+            }
+          },
+          {
+            "codigo": "MAT0031",
+            "nome": "INTRODUCAO A ALGEBRA LINEAR",
+            "unidadeAcademica": {
+              "codigo": "MAT",
+              "nome": "DEPARTAMENTO DE MATEMÁTICA"
+            }
+          }
+        ],
+        "unidadeAcademica": {
+          "codigo": "ENE",
+          "nome": "DEPARTAMENTO DE ENGENHARIA ELÉTRICA"
+        }
+      }, {
+        "codigo": "ENE0274",
+        "nome": "FUNDAMENTOS DE REDES",
+        "modalidade": "presencial",
+        "cargaHorariaTotal": 60,
+        "cargaHoraria": {
+          "teorica": 60,
+          "pratica": 0,
+          "extensionista": 0
+        },
+        "preRequisito": [
+          {
+            "codigo": "EST0023",
+            "nome": "PROBABILIDADE E ESTATÍSTICA",
+            "unidadeAcademica": {
+              "codigo": "ENE",
+              "nome": "DEPARTAMENTO DE ENGENHARIA ELÉTRICA"
+            }
+          },
+          {
+            "codigo": "ENE0013",
+            "nome": "ALGORITMOS E ESTRUTURA DE DADOS",
+            "unidadeAcademica": {
+              "codigo": "ENE",
+              "nome": "DEPARTAMENTO DE ENGENHARIA ELÉTRICA"
+            }
+          }
+        ],
+        "unidadeAcademica": {
+          "codigo": "ENE",
+          "nome": "DEPARTAMENTO DE ENGENHARIA ELÉTRICA"
+        }
+      }, {
+        "codigo": "IFD0177",
+        "nome": "FISICA 2 EXPERIMENTAL",
+        "modalidade": "presencial",
+        "cargaHorariaTotal": 60,
+        "cargaHoraria": {
+          "teorica": 0,
+          "pratica": 60,
+          "extensionista": 0
+        },
+        "preRequisito": [
+          {
+            "codigo": "IFD0173",
+            "nome": "FISICA 1 EXPERIMENTAL",
+            "unidadeAcademica": {
+              "codigo": "ENE",
+              "nome": "DEPARTAMENTO DE ENGENHARIA ELÉTRICA"
+            }
+          },
+          {
+            "codigo": "IFD0171",
+            "nome": "FISICA 1",
+            "unidadeAcademica": {
+              "codigo": "IFD",
+              "nome": "INSTITUTO DE FÍSICA"
+            }
+          }
+        ],
+        "unidadeAcademica": {
+          "codigo": "IFD",
+          "nome": "INSTITUTO DE FÍSICA"
+        }
+      }, {
+        "codigo": "MAT0027",
+        "nome": "CÁLCULO 3",
+        "modalidade": "presencial",
+        "cargaHorariaTotal": 60,
+        "cargaHoraria": {
+          "teorica": 60,
+          "pratica": 30,
+          "extensionista": 0
+        },
+        "preRequisito": [
+          {
+            "codigo": "MAT0026",
+            "nome": "CÁLCULO 2",
+            "unidadeAcademica": {
+              "codigo": "MAT",
+              "nome": "DEPARTAMENTO DE MATEMÁTICA"
+            }
+          }
+        ],
+        "unidadeAcademica": {
+          "codigo": "MAT",
+          "nome": "DEPARTAMENTO DE MATEMÁTICA"
+        }
+      }
+    ]
+}

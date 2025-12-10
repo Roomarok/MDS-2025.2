@@ -11,7 +11,9 @@ import {
   IonContent,
   IonHeader,
   IonIcon,
+  IonItem,
   IonLabel,
+  IonList,
   IonToolbar,
 } from '@ionic/angular/standalone';
 import { addIcons } from 'ionicons';
@@ -26,6 +28,8 @@ import {
 } from 'ionicons/icons';
 import { Speaker } from '../../interfaces/conference.interfaces';
 import { ConferenceService } from '../../providers/conference.service';
+import { Turma } from '../../interfaces/turma';
+import { TurmaService } from '../../providers/turma.service';
 
 @Component({
     selector: 'page-speaker-detail',
@@ -33,6 +37,8 @@ import { ConferenceService } from '../../providers/conference.service';
     styleUrls: ['./speaker-detail.scss'],
     imports: [
         IonContent,
+        IonList,
+        IonItem,
         IonHeader,
         IonToolbar,
         IonButtons,
@@ -46,9 +52,10 @@ import { ConferenceService } from '../../providers/conference.service';
     providers: [InAppBrowser, ActionSheetController]
 })
 export class SpeakerDetailPage {
-  speaker: Speaker;
+  turmas: Turma[] = [];
+  defaultHref = '';
 
-  private confService = inject(ConferenceService);
+  private turmaService = inject(TurmaService);
   private route = inject(ActivatedRoute);
   private actionSheetCtrl = inject(ActionSheetController);
   private inAppBrowser = inject(InAppBrowser);
@@ -66,13 +73,15 @@ export class SpeakerDetailPage {
   }
 
   ionViewWillEnter() {
-    this.confService.load().subscribe(data => {
-      const speakerId = this.route.snapshot.paramMap.get('speakerId');
-      if (data && data.speakers) {
-        for (const speaker of data.speakers) {
-          if (speaker && speaker.id === speakerId) {
-            this.speaker = speaker;
-            break;
+    this.defaultHref = '/app/tabs/speakers';
+    this.turmaService.load().subscribe(data => {
+      const disciplinaId = this.route.snapshot.paramMap.get('speakerId');
+      console.log(disciplinaId);
+      if (data && data.turmas) {
+        this.turmas = [];
+        for (const turma of data.turmas) {
+          if (turma.disciplina.codigo == disciplinaId) {
+            this.turmas.push(turma);
           }
         }
       }

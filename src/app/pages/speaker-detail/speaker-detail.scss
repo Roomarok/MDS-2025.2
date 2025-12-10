@@ -2,22 +2,7 @@
  * Speaker Background
  */
 
-ion-toolbar {
-  --background: transparent;
-  --color: white;
 
-  position: absolute;
-
-  top: 0;
-  right: 0;
-  left: 0;
-}
-
-ion-toolbar ion-button,
-ion-toolbar ion-back-button,
-ion-toolbar ion-menu-button {
-  --color: white;
-}
 
 .speaker-background {
   display: flex;

@@ -2,6 +2,7 @@ import { Component, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import {
   IonAvatar,
+  IonSearchbar,
   IonButtons,
   IonCard,
   IonCardContent,
@@ -18,8 +19,8 @@ import {
   IonTitle,
   IonToolbar,
 } from '@ionic/angular/standalone';
-import { Speaker } from '../../interfaces/conference.interfaces';
-import { ConferenceService } from '../../providers/conference.service';
+import { DisciplinaService } from '../../providers/disciplina.service';
+import { Disciplina } from '../../interfaces/disciplina';
 
 @Component({
     selector: 'page-speaker-list',
@@ -27,6 +28,7 @@ import { ConferenceService } from '../../providers/conference.service';
     styleUrls: ['./speaker-list.scss'],
     imports: [
         IonHeader,
+        IonSearchbar,
         IonToolbar,
         IonButtons,
         IonMenuButton,
@@ -46,13 +48,35 @@ import { ConferenceService } from '../../providers/conference.service';
     ]
 })
 export class SpeakerListPage {
-  private confData = inject(ConferenceService);
+  private disciplinaService = inject(DisciplinaService);
 
-  speakers: Speaker[] = [];
+  disciplinas: Disciplina[] = [];
 
   ionViewDidEnter() {
-    this.confData.getSpeakers().subscribe(speakers => {
-      this.speakers = speakers;
+    this.disciplinaService.getDisciplinas().subscribe(data => {
+//      this.disciplinas = data.disciplinas;
     });
   }
+
+  getDisciplinas(event) {
+    let val = event.target.value;
+    console.log(val);
+    if (!val || !val.trim()) {
+      this.disciplinas = [];
+      return;
+    }
+    this.disciplinas = this.disciplinaService?.query({
+      nome: val,
+      codigo: val
+    });
+    console.log(this.disciplinas);
+    /*
+    this.disciplinas = this.disciplinaData.query({
+      nome: val,
+      codigo: val
+    });
+    */
+
+  }
+
 }

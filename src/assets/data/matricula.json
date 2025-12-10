@@ -1,0 +1,120 @@
+{
+    "matriculas": [
+      {
+        "_type": "Matricula",
+        "id": "ENE0022-A",
+        "status": "PreMatricula",
+        "turma": {
+          "_type": "Turma",
+          "codigo": "A",
+          "disciplina": {
+            "codigo": "ENE0022",
+            "nome": "PROJETO TRANSVERSAL EM REDES DE COMUNICAÇÃO 1"
+          },
+          "vagasOfertadas": 10,
+          "vagasOcupadas": 0,
+          "horario": [{
+            "dia": "TER",
+            "horaInicio": "16:00",
+            "horaFim": "17:50"
+          }, {
+            "dia": "QUI",
+            "horaInicio": "16:00",
+            "horaFim": "17:50"
+          }]
+        }
+      },
+      {
+        "_type": "Matricula",
+        "id": "ENE0056-A",
+        "status": "PreMatricula",
+        "turma": {
+          "_type": "Turma",
+          "codigo": "A",
+          "disciplina": {
+            "codigo": "ENE0056",
+            "nome": "SISTEMAS MICROPROCESSADOS"
+          },
+          "vagasOfertadas": 10,
+          "vagasOcupadas": 0,
+          "horario": [{
+            "dia": "SEG",
+            "horaInicio": "10:00",
+            "horaFim": "11:50"
+          }, {
+            "dia": "QUA",
+            "horaInicio": "10:00",
+            "horaFim": "11:50"
+          }]
+        }
+      },
+      {
+        "_type": "Matricula",
+        "id": "ENE0058-A",
+        "status": "PreMatricula",
+        "turma": {
+          "_type": "Turma",
+          "codigo": "A",
+          "disciplina": {
+            "codigo": "ENE0058",
+            "nome": "LABORATÓRIO DE SISTEMAS MICROPROCESSADOS"
+          },
+          "vagasOfertadas": 10,
+          "vagasOcupadas": 0,
+          "horario": [{
+            "dia": "SEG",
+            "horaInicio": "14:00",
+            "horaFim": "15:50"
+          }]
+        }
+      },
+      {
+        "_type": "Matricula",
+        "id": "ENE0067-A",
+        "status": "PreMatricula",
+        "turma": {
+          "_type": "Turma",
+          "codigo": "A",
+          "disciplina": {
+            "codigo": "ENE0067",
+            "nome": "SINAIS E SISTEMAS EM TEMPO CONTÍNUO"
+          },
+          "vagasOfertadas": 10,
+          "vagasOcupadas": 0,
+          "horario": [{
+            "dia": "TER",
+            "horaInicio": "14:00",
+            "horaFim": "15:50"
+          }, {
+            "dia": "QUI",
+            "horaInicio": "14:00",
+            "horaFim": "15:50"
+          }]
+        }
+      },
+      {
+        "_type": "Matricula",
+        "id": "ENE0274-A",
+        "status": "PreMatricula",
+        "turma": {
+          "_type": "Turma",
+          "codigo": "A",
+          "disciplina": {
+            "codigo": "ENE0274",
+            "nome": "FUNDAMENTOS DE REDES"
+          },
+          "vagasOfertadas": 10,
+          "vagasOcupadas": 0,
+          "horario": [{
+            "dia": "TER",
+            "horaInicio": "10:00",
+            "horaFim": "11:50"
+          }, {
+            "dia": "QUI",
+            "horaInicio": "10:00",
+            "horaFim": "11:50"
+          }]
+        }
+      }
+    ]
+}
