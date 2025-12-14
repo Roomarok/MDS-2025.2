@@ -9,7 +9,12 @@
           "codigo": "A",
           "disciplina": {
             "codigo": "ENE0022",
-            "nome": "PROJETO TRANSVERSAL EM REDES DE COMUNICAÇÃO 1"
+            "nome": "PROJETO TRANSVERSAL EM REDES DE COMUNICAÇÃO 1",
+            "cargaHorariaTotal": 60,
+            "unidadeAcademica": {
+              "codigo": "ENE",
+              "nome": "DEPARTAMENTO DE ENGENHARIA ELÉTRICA"
+            }
           },
           "vagasOfertadas": 10,
           "vagasOcupadas": 0,
@@ -33,7 +38,12 @@
           "codigo": "A",
           "disciplina": {
             "codigo": "ENE0056",
-            "nome": "SISTEMAS MICROPROCESSADOS"
+            "nome": "SISTEMAS MICROPROCESSADOS",
+            "cargaHorariaTotal": 60,
+            "unidadeAcademica": {
+              "codigo": "ENE",
+              "nome": "DEPARTAMENTO DE ENGENHARIA ELÉTRICA"
+            }
           },
           "vagasOfertadas": 10,
           "vagasOcupadas": 0,
@@ -57,7 +67,12 @@
           "codigo": "A",
           "disciplina": {
             "codigo": "ENE0058",
-            "nome": "LABORATÓRIO DE SISTEMAS MICROPROCESSADOS"
+            "nome": "LABORATÓRIO DE SISTEMAS MICROPROCESSADOS",
+            "cargaHorariaTotal": 30,
+            "unidadeAcademica": {
+              "codigo": "ENE",
+              "nome": "DEPARTAMENTO DE ENGENHARIA ELÉTRICA"
+            }
           },
           "vagasOfertadas": 10,
           "vagasOcupadas": 0,
@@ -77,7 +92,12 @@
           "codigo": "A",
           "disciplina": {
             "codigo": "ENE0067",
-            "nome": "SINAIS E SISTEMAS EM TEMPO CONTÍNUO"
+            "nome": "SINAIS E SISTEMAS EM TEMPO CONTÍNUO",
+            "cargaHorariaTotal": 60,
+            "unidadeAcademica": {
+              "codigo": "ENE",
+              "nome": "DEPARTAMENTO DE ENGENHARIA ELÉTRICA"
+            }
           },
           "vagasOfertadas": 10,
           "vagasOcupadas": 0,
@@ -101,7 +121,12 @@
           "codigo": "A",
           "disciplina": {
             "codigo": "ENE0274",
-            "nome": "FUNDAMENTOS DE REDES"
+            "nome": "FUNDAMENTOS DE REDES",
+            "cargaHorariaTotal": 60,
+            "unidadeAcademica": {
+              "codigo": "ENE",
+              "nome": "DEPARTAMENTO DE ENGENHARIA ELÉTRICA"
+            }
           },
           "vagasOfertadas": 10,
           "vagasOcupadas": 0,
