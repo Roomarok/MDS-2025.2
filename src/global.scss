@@ -43,3 +43,42 @@
 // @use "@ionic/angular/css/palettes/dark.always.css";
 // @use "@ionic/angular/css/palettes/dark.system.css";
 @use '@ionic/angular/css/palettes/dark.class.css';
+
+
+:root {
+  --ion-color-primary: #003366 !important;
+  --ion-color-primary-rgb: 0, 51, 102 !important;
+
+  --ion-color-secondary: #008542 !important;
+  --ion-color-secondary-rgb: 0, 133, 66 !important;
+}
+
+ion-toolbar {
+  --background: #003366 !important;
+  --color: #ffffff !important;
+}
+
+
+ion-button {
+  --background: #008542 !important;
+  --color: #ffffff !important;
+}
+
+
+ion-tab-button.tab-selected {
+  color: #003366 !important;
+}
+
+
+
+ion-button[fill="clear"],
+ion-button.skip,
+.skip {
+  color: #ffffff !important;
+}
+
+
+ion-toolbar ion-button {
+  color: #ffffff !important;
+}
+
