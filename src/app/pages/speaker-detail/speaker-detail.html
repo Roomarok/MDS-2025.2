@@ -15,6 +15,18 @@
             <h3>Disciplina</h3>
             <p>Código: {{turma.disciplina.codigo}}</p>
             <p>Nome: {{turma.disciplina.nome}}</p>
+            @if (turma.disciplina && turma.disciplina.cargaHorariaTotal) {
+              <p>Carga horária (total): {{turma.disciplina.cargaHorariaTotal}}</p>
+            }
+            @if (!(turma.disciplina && turma.disciplina.cargaHorariaTotal)) {
+              <p>Carga horária (total): —</p>
+            }
+            @if (turma.disciplina && turma.disciplina.unidadeAcademica && turma.disciplina.unidadeAcademica.nome) {
+              <p>Unidade Responsável: {{turma.disciplina.unidadeAcademica.nome}}</p>
+            }
+            @if (!(turma.disciplina && turma.disciplina.unidadeAcademica && turma.disciplina.unidadeAcademica.nome)) {
+              <p>Unidade Responsável: —</p>
+            }
             <h3>Turma</h3>
             <p>Vagas ofertadas: {{turma.vagasOfertadas}}</p>
             <p>Vagas disponíveis: {{turma.vagasOfertadas - turma.vagasOcupadas}}</p>

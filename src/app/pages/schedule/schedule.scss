@@ -23,3 +23,9 @@ ion-fab-button {
     border-left: 2px solid var(--ion-color-#{$track});
   }
 }
+
+.confirmarBt{
+  box-sizing: border-box;
+  width: calc(100% - 20px);
+  margin: 0px 10px;
+}
