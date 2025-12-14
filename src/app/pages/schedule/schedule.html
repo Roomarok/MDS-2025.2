@@ -8,7 +8,8 @@
 </ion-header>
 
 <ion-content fullscreen="true">
-  <ion-list #scheduleList [hidden]="matriculas.length == 0">
+  @if( matriculas.length > 0) {
+  <ion-list #scheduleList>
       @for (matricula of matriculas; track matricula.id) {
         <ion-item routerLink="/app/tabs/schedule/session/{{matricula.id}}">
           <ion-label>
@@ -23,10 +24,10 @@
           </ion-label>
         </ion-item>
 
- }
+      }
   </ion-list>
-
-  <ion-list-header [hidden]="matriculas.length > 0">
-    Nenhuma matrícula encontrada!
-  </ion-list-header>
+  }
+  @if (!matriculaConfirmada) {
+    <ion-button (click)="confirmarMatricula()" disabled="{{verificarMatricula()}}">Confirmar</ion-button>
+  }
 </ion-content>

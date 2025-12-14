@@ -14,6 +14,7 @@ export class MatriculaService {
   http = inject(HttpClient);
 
   data: MatriculaData | null = null;
+  matriculaConfirmada = false;
 
   constructor(
   ) {
@@ -44,5 +45,63 @@ export class MatriculaService {
   getMatriculas() {
     return this.load().pipe(map((data: MatriculaData) => data));
   }
+
+  detail(id: string) {
+    for (let matricula of this.data.matriculas) {
+      if (matricula.id == id) {
+        return matricula;
+      }
+    }
+    return null;
+  }
+
+  search(params?: any) {
+    if (!params) {
+      return this.data.matriculas;
+    }
+
+    return this.data.matriculas.filter((matricula) => {
+      for (let key in params) {
+        let field = matricula[key];
+        if (typeof field == 'string' && field.toLowerCase().indexOf(params[key].toLowerCase()) >= 0) {
+          return matricula;
+        } else if (field == params[key]) {
+          return matricula;
+        }
+      }
+      return null;
+    });
+  }
+
+  add(matricula: Matricula) {
+    matricula.id = matricula.turma.disciplina.codigo + '-' + matricula.turma.codigo;
+    this.data.matriculas.push(matricula);
+  }
+
+  patchStatus(id: string, status: string) {
+    for (let matricula of this.data.matriculas) {
+      if (matricula.id == id) {
+        matricula.status = status;
+      }
+    }
+
+  }
+
+  delete(id: string) {
+    for (var i = 0; i < this.data.matriculas.length; i++) {
+      if (this.data.matriculas[i].id == id) {
+        this.data.matriculas.splice(i);
+      }
+    }
+  }
+
+  confirmarMatricula() {
+    this.matriculaConfirmada = true;
+  }
+
+  verificarMatriculaConfirmada() {
+    return this.matriculaConfirmada;
+  }
+
 
 }

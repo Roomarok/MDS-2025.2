@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import {
   IonBackButton,
   IonButton,
@@ -25,6 +25,8 @@ import {
 import { Session } from '../../interfaces/conference.interfaces';
 import { ConferenceService } from '../../providers/conference.service';
 import { UserService } from '../../providers/user.service';
+import { Matricula } from '../../interfaces/matricula';
+import { MatriculaService } from '../../providers/matricula.service';
 
 @Component({
     selector: 'page-session-detail',
@@ -45,11 +47,12 @@ import { UserService } from '../../providers/user.service';
     ]
 })
 export class SessionDetailPage {
-  private confService = inject(ConferenceService);
-  private userService = inject(UserService);
+  private matriculaService = inject(MatriculaService);
+//  private userService = inject(UserService);
   private route = inject(ActivatedRoute);
+  private router = inject(Router);
 
-  session: Session;
+  matricula: Matricula;
   isFavorite = false;
   defaultHref = '';
 
@@ -58,37 +61,32 @@ export class SessionDetailPage {
   }
 
   ionViewWillEnter() {
-    this.confService.load().subscribe(data => {
+    const sessionId = this.route.snapshot.paramMap.get('sessionId');
+    this.matricula = this.matriculaService.detail(sessionId);
+    console.log(this.matricula);
+/*
+    this.matriculaService.getMatriculas().subscribe(data => {
       if (
-        data &&
-        data.schedule &&
-        data.schedule[0] &&
-        data.schedule[0].groups
+        data 
       ) {
         const sessionId = this.route.snapshot.paramMap.get('sessionId');
-        for (const group of data.schedule[0].groups) {
-          if (group && group.sessions) {
-            for (const session of group.sessions) {
-              if (session && session.id === sessionId) {
-                this.session = session;
-
-                this.isFavorite = this.userService.hasFavorite(
-                  this.session.name
-                );
-
-                break;
-              }
-            }
+        console.log('id='+sessionId);
+        for (const matricula of data.matriculas) {
+          if (matricula.id == sessionId) {
+            this.matricula = matricula;
+            break;
           }
         }
+        console.log(this.matricula);
       }
     });
+*/    
   }
 
   ionViewDidEnter() {
     this.defaultHref = '/app/tabs/schedule';
   }
-
+/*
   sessionClick(item: string) {
     console.log('Clicked', item);
   }
@@ -106,5 +104,20 @@ export class SessionDetailPage {
 
   shareSession() {
     console.log('Clicked share session');
+  }
+*/    
+  verificarMatriculaConfirmada() {
+    return this.matriculaService.matriculaConfirmada;
+  }
+
+  alterarStatus(status) {
+    this.matriculaService.patchStatus(this.matricula.id,status);
+    this.router.navigateByUrl(this.defaultHref);
+
+  }
+
+  excluir() {
+    this.matriculaService.delete(this.matricula.id);
+    this.router.navigateByUrl(this.defaultHref);
   }
 }

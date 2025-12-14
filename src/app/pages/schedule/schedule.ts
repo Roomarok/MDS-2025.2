@@ -20,11 +20,7 @@ import {
   IonButton,
   IonButtons,
   IonContent,
-  IonFab,
-  IonFabButton,
-  IonFabList,
   IonHeader,
-  IonIcon,
   IonItemDivider,
   IonItemGroup,
   IonItemOption,
@@ -35,9 +31,6 @@ import {
   IonListHeader,
   IonMenuButton,
   IonRouterOutlet,
-  IonSearchbar,
-  IonSegment,
-  IonSegmentButton,
   IonTitle,
   IonToolbar,
   LoadingController,
@@ -57,18 +50,11 @@ import { ScheduleFilterPage } from '../schedule-filter/schedule-filter';
         IonHeader,
         IonToolbar,
         IonButtons,
-        IonSegment,
-        IonSegmentButton,
         IonContent,
         IonTitle,
-        IonSearchbar,
         IonButton,
-        IonIcon,
         IonList,
         IonListHeader,
-        IonFab,
-        IonFabButton,
-        IonFabList,
         FormsModule,
         IonItemSliding,
         LowerCasePipe,
@@ -90,7 +76,6 @@ import { ScheduleFilterPage } from '../schedule-filter/schedule-filter';
 })
 export class SchedulePage {
   alertCtrl = inject(AlertController);
-  confService = inject(ConferenceService);
   loadingCtrl = inject(LoadingController);
   modalCtrl = inject(ModalController);
   router = inject(Router);
@@ -98,11 +83,13 @@ export class SchedulePage {
   toastCtrl = inject(ToastController);
   matriculaService = inject(MatriculaService);
   config = inject(Config);
+  matriculaConfirmada = false;
 
   // Gets a reference to the list element
   @ViewChild('scheduleList', { static: true }) scheduleList: IonList;
 
   matriculas : Matricula[] = [];
+  matriculasLidas = false;
 
   constructor() {
     addIcons({
@@ -117,9 +104,30 @@ export class SchedulePage {
   }
 
   ionViewWillEnter() {
-    this.matriculaService.getMatriculas().subscribe(data => {
-      this.matriculas = data.matriculas;
-    });
+    if(this.matriculasLidas) {
+      this.matriculas = this.matriculaService.search();
+    }
+    else {  
+      this.matriculaService.getMatriculas().subscribe(data => {
+        this.matriculas = data.matriculas;
+      });
+      this.matriculasLidas = true;
+    }  
+  }
+    
+  confirmarMatricula() {
+    this.matriculaConfirmada = true;
+    this.matriculaService.confirmarMatricula();
+  }
+
+  verificarMatricula() {
+    this.matriculaConfirmada = this.matriculaService.verificarMatriculaConfirmada();
+    for(let matricula of this.matriculas) {
+      if(matricula.status == 'PreMatricula') {
+        return true;
+      }
+    }
+    return false;
   }
 
 }

@@ -3,6 +3,7 @@
     <ion-buttons slot="start">
       <ion-back-button [defaultHref]="defaultHref"></ion-back-button>
     </ion-buttons>
+    <ion-title>Turmas {{disciplina}} 2026.1</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -23,6 +24,9 @@
               <p>{{horario.dia}}: {{horario.horaInicio}} &mdash; {{horario.horaFim}}</p>
             }
           </ion-label>
+          @if (!verificarMatriculaConfirmada()) {
+            <ion-button (click)="confirmarInclusaoTurma(turma)">Adicionar</ion-button>
+          }  
         </ion-item>
         }      
       </ion-list>  
