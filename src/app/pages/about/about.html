@@ -1,104 +1,52 @@
-<ion-content>
-  <ion-header class="ion-no-border">
-    <ion-toolbar>
-      <ion-buttons slot="start">
-        <ion-menu-button></ion-menu-button>
-      </ion-buttons>
-      <ion-buttons slot="end">
-        <ion-button (click)="presentPopover($event)">
-          <ion-icon
-            slot="icon-only"
-            ios="ellipsis-horizontal"
-            md="ellipsis-vertical"
-          ></ion-icon>
-        </ion-button>
-      </ion-buttons>
-    </ion-toolbar>
-  </ion-header>
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <p class="titulo">Sobre</p>
+  </ion-toolbar>
+</ion-header>
 
-  <div class="about-header">
-    <!-- Instead of loading an image each time the select changes, use opacity to transition them -->
-    <div
-      class="about-image madison"
-      [ngStyle]="location === 'madison' && {'opacity': '1'}"
-    ></div>
-    <div
-      class="about-image austin"
-      [ngStyle]="location === 'austin' && {'opacity': '1'}"
-    ></div>
-    <div
-      class="about-image chicago"
-      [ngStyle]="location === 'chicago' && {'opacity': '1'}"
-    ></div>
-    <div
-      class="about-image seattle"
-      [ngStyle]="location === 'seattle' && {'opacity': '1'}"
-    ></div>
+<ion-content class="about-page" fullscreen>
+  <div class="hero">
+    <div class="hero-inner">
+      <img class="logoUnb" src="../../../assets/img/logo UnB.png" alt="logo unb">
+      <h1>App Acadêmico</h1>
+      <p class="subtitle">Ferramenta para realizar matrículas.</p>
+    </div>
   </div>
 
-  <div class="about-info">
-    <h3 class="ion-padding-top ion-padding-start">About</h3>
+  <main class="about-content">
+    <section class="section">
+      <h2>O que é este aplicativo?</h2>
+      <p>Este aplicativo é uma plataforma móvel desenvolvida para realizar as matriculas dos alunos.</p>
+    </section>
 
-    <p class="ion-padding-start ion-padding-end">
-      The Ionic Conference is a one-day event happening on {{ conferenceDate | date:
-      'mediumDate' }}, featuring talks from the Ionic team. The conference focuses on
-      building applications with Ionic Framework, including topics such as app migration
-      to the latest version, Angular best practices, Webpack, Sass, and other technologies
-      commonly used in the Ionic ecosystem. Tickets are completely sold out, and we're expecting
-      over 1,000 developers — making this the largest Ionic conference to date!
-    </p>
+    <section class="section">
+      <h2>Objetivo</h2>
+      <p>O principal objetivo é simplificar e agilizar o processo de matrícula, centralizando as ofertas
+      e opções de inscrição em um único ambiente. O app permite que o estudante consulte disciplinas
+      ofertadas, verifique horários e vagas, inscreva-se em turmas e acompanhe o status da matrícula
+      de forma simples.</p>
+    </section>
 
-    <h3 class="ion-padding-top ion-padding-start">Details</h3>
+    <section class="section">
+      <h2>Público-alvo</h2>
+      <p>Estudantes de graduação que desejam realizar matrícula em turmas.</p>
+    </section>
 
-    <ion-list lines="none">
-      <ion-item>
-        <ion-select
-          label="Location"
-          [(ngModel)]="location"
-          [interfaceOptions]="selectOptions"
-        >
-          <ion-select-option value="madison">Madison, WI</ion-select-option>
-          <ion-select-option value="austin">Austin, TX</ion-select-option>
-          <ion-select-option value="chicago">Chicago, IL</ion-select-option>
-          <ion-select-option value="seattle">Seattle, WA</ion-select-option>
-        </ion-select>
-      </ion-item>
-      <ion-item button="true" id="open-date-input">
-        <ion-label> Date </ion-label>
-        <ion-text slot="end"
-          >{{ conferenceDate | date: 'mediumDate' }}</ion-text
-        >
-        <ion-popover
-          id="date-input-popover"
-          trigger="open-date-input"
-          [showBackdrop]="false"
-          side="top"
-          alignment="end"
-        >
-          <ng-template>
-            <ion-datetime
-              max="2056"
-              [(ngModel)]="conferenceDate"
-              presentation="date"
-            ></ion-datetime>
-          </ng-template>
-        </ion-popover>
-      </ion-item>
-    </ion-list>
+    <section class="section">
+      <h2>Principais funcionalidades</h2>
+      <ul>
+        <li><strong>Pré-matrícula:</strong> turmas já adicionadas automaticamente pelo sistema.</li>
+        <li><strong>Disciplinas:</strong> informações sobre carga horária, horários de aula e etc.</li>
+        <li><strong>Matrículas:</strong> status de matrícula e informações de turmas.</li>
+        <li><strong>Lista de ofertas:</strong> lista com todas as disciplinas ofertadas no semestre atual.</li>
+      </ul>
+    </section>
 
-    <h3 class="ion-padding-top ion-padding-start">Internet</h3>
-
-    <ion-list lines="none">
-      <ion-item>
-        <ion-label> Wifi network </ion-label>
-        <ion-label class="ion-text-end">
-          ica{{conferenceDate | date: 'y'}}
-        </ion-label>
-      </ion-item>
-      <ion-item>
-        <ion-label> Password </ion-label>
-        <ion-label class="ion-text-end"> makegoodthings </ion-label>
-      </ion-item>
-    </ion-list>
-  </div>
+    <footer class="about-footer">
+      <p>Versão 1.0.0 • Desenvolvido para fins acadêmicos</p>
+    </footer>
+  </main>
 </ion-content>

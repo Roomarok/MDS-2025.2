@@ -1,13 +1,3 @@
-ion-toolbar {
-  --background: transparent;
-  --color: white;
-  position: absolute;
-
-  top: 0;
-  right: 0;
-  left: 0;
-}
-
 ion-toolbar ion-button,
 ion-toolbar ion-back-button,
 ion-toolbar ion-menu-button {
@@ -21,81 +11,37 @@ ion-toolbar ion-menu-button {
   height: 30%;
 }
 
-.about-header .about-image {
-  position: absolute;
-
-  inset: 0;
-
-  transition: opacity 500ms ease-in-out;
-
-  background-repeat: no-repeat;
-
-  background-position: center;
-  background-size: cover;
-
-  opacity: 0;
+.titulo{
+  font-size: 20px;
+  padding: 0px 20px;
+  margin: 0px;
 }
 
-.about-header .madison {
-  background-image: url('/assets/img/about/madison.jpg');
+.logoUnb{
+  width: 80%;
+  margin-bottom: 20px;
 }
 
-.about-header .austin {
-  background-image: url('/assets/img/about/austin.jpg');
+.hero {
+  padding: 48px 20px 18px 20px;
+  background: linear-gradient(180deg, rgba(37,99,235,0.15), transparent 60%);
+  text-align: center;
 }
 
-.about-header .chicago {
-  background-image: url('/assets/img/about/chicago.jpg');
-}
+.hero h1 { margin: 0; font-size: 22px; color: #0f172a; }
+.hero .subtitle { margin-top: 6px; color: #334155; font-size: 14px; }
 
-.about-header .seattle {
-  background-image: url('/assets/img/about/seattle.jpg');
-}
+.about-content { padding: 18px 16px 40px 16px; max-width: 920px; margin: 0 auto; }
+.section { margin-bottom: 18px; }
+.section h2 { margin: 0 0 8px 0; font-size: 16px; color: #0f172a; }
+.section p { margin: 0; color: #475569; line-height: 1.5; }
+.section ul { margin: 8px 0 0 18px; color: #475569; }
+.section ul li { margin-bottom: 6px; }
 
-.about-info {
-  position: relative;
+.about-footer { text-align: center; margin-top: 16px; color: #94a3b8; font-size: 13px; }
 
-  margin-top: -10px;
-
-  border-radius: 10px;
-
-  background: var(--ion-background-color, #ffffff);
-
-  z-index: 2; // display rounded border above header image
-}
-
-.about-info h3 {
-  margin-top: 0;
-}
-
-.about-info ion-list {
-  padding-top: 0;
-}
-
-.about-info p {
-  color: var(--ion-color-dark);
-
-  line-height: 130%;
-}
-
-.about-info ion-icon {
-  margin-inline-end: 32px;
-}
-
-#date-input-popover {
-  --offset-y: -var(--ion-safe-area-bottom);
-  --max-width: 90%;
-  --width: 336px;
-}
-
-/*
- * iOS Only
- */
-
-.ios .about-info {
-  --ion-padding: 19px;
-}
-
-.ios .about-info h3 {
-  font-weight: 700;
+@media (min-width: 700px) {
+  .hero { padding: 72px 20px 28px 20px; }
+  .hero h1 { font-size: 28px; }
+  .about-content { padding: 28px 40px 60px 40px; }
 }
